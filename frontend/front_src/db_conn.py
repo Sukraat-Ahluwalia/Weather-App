@@ -17,7 +17,7 @@ class db_conn:
 	def __init__(self, email_id, location):
 		self.email_id = email_id
 		self.location = location
-		logging.basicConfig(filename='../../config/client_errs.log')
+		logging.basicConfig(filename='../../logging/client_errs.log')
 	'''
 	@function get_secrets
 	Connects with AWS Secrets Manager to get the
