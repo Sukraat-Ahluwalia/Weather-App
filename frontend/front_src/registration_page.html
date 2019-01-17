@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Powered Email</title>
+</head>
+<body>
+<div align="center">
+    <table border="border">
+    <tr><td>Weather Powered Email</td></tr>
+        <form action="http://localhost:5000/insert_db" method="post">
+        <tr>
+        <td>Email Address: <input type="text" name="email_address" required="required" pattern="^.+@.+$"></td>
+        </tr>
+        <tr>
+            <td>Location: <input type="text" name="location" autocomplete="on" required="required"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Subscribe"></td>
+        </tr>
+        </form>
+    </table>
+</div>
+</body>
+</html>

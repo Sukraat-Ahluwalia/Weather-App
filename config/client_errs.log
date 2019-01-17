@@ -1,0 +1,20 @@
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 12, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 60, in check_insert
+    sm_string = self.get_secrets()
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 27, in get_secrets
+    secret_name = secret_creds["secret_name"]
+NameError: global name 'secret_creds' is not defined
+INFO:werkzeug:127.0.0.1 - - [17/Jan/2019 05:53:43] "POST /insert_db HTTP/1.1" 500 -

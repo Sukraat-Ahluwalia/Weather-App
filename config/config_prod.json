@@ -1,0 +1,4 @@
+{
+	"secret_name":"weather_app_db_secret",
+	"region" : "us-east-1"
+}
