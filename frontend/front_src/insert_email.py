@@ -5,7 +5,7 @@
 Receives email address and location from the client side
 To insert into the database.
 '''
-from flask import request, redirect
+from flask import request, redirect, render_template
 from flask import Flask
 import db_conn 
 app = Flask(__name__)
@@ -17,6 +17,6 @@ def insert_db():
 	
 	conn_obj = db_conn.db_conn(email_str, location)
 	if conn_obj.check_insert():
-		return render_template("success.html")
+		return render_template('success.html')
 
-	return render_template("failure.html")
+	return render_template('failure.html')

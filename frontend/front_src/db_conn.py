@@ -8,7 +8,7 @@ and MySQL.
 import json
 import boto3
 import logging
-import datetime as dtime
+import datetime as dt
 import mysql.connector as mysql_conn
 from botocore.exceptions import ClientError
 
@@ -27,14 +27,13 @@ class db_conn:
 	'''
 	def get_secrets(self):
 		secret_str = ""
-		
+
 		#load the credentials to be sent to secrets manager
 		with open('../../config/config_prod.json') as json_file:
-			secrets_creds = json.load(json_file)
-
+			secret_creds = json.load(json_file)
+			
 		secret_name = secret_creds["secret_name"]
 		region = secret_creds["region"]
-
 
 		aws_session = boto3.session.Session()
 		sm_client = aws_session.client(
@@ -57,14 +56,15 @@ class db_conn:
 				sm_err_str = " Resource Not Found Error for Secrets Manager" 
 			elif cl_err.response['Error']['Code'] == 'InvalidRequestException':
 				sm_err_str = " Invalid Request to Secrets Manager" 
+			elif cl_err.response['Error']['Code'] == 'InvalidParameterException':
+				sm_err_str = "Invalid Parameter Passed to Secrets Manager"
 			else:
-				sm_err_str = "Error Occured for Secrets Manager " 
-			logging.debug(dt.datetime.now() + sm_err_str)
+				sm_err_str = "Error Occurred for Secrets Manager "
+			logging.warn(sm_err_str)
 		else:
 			if 'SecretString' in awssm_response:
 				secret_str = awssm_response['SecretString']
 		
-
 		return secret_str
 
 
@@ -75,17 +75,17 @@ class db_conn:
 	'''
 	def check_insert(self):
 		sm_string = self.get_secrets()		
-		
 		if len(sm_string) == 0:
-			logging.debug(dt.datetime.now() + " Call to Secrets Manager Failed")	
+			logging.debug(str(dt.datetime.now()) + " Call to Secrets Manager Failed")	
 			return False
 
-		sm_string_vals = json.load(sm_string)
+		sm_string = json.loads(sm_string)
+
 		db_config = {
-			'host' : sm_string_vals["host"],
-			'user' : sm_string_vals["user"],
-			'password' : sm_string_vals["password"],
-			'database' : sm_string_vals["dbname"]
+			'host' : sm_string["host"],
+			'user' : sm_string["username"],
+			'password' : sm_string["password"],
+			'database' : sm_string["dbname"]
 		}
 		
 		'''
@@ -104,15 +104,14 @@ class db_conn:
 				db_err_str = " Access Denied while connecting to DB at "
 			else:
 				db_err_str = " Error occurred while connecting to DB at "
-			logging.debug(dt.datetime.now() + db_err_str)
+			logging.debug(str(dt.datetime.now()) + db_err_str)
 		else:
-			cursor = conn.cursor()
+			cursor = conn.cursor(buffered=True)
 			query = ("SELECT COUNT(%s) from addresses where email_addr=%s")
 			cursor.execute(query , (self.email_id, self.email_id))
 
-			if len(cursor) > 0:
+			if cursor.rowcount > 1:
 				return False
-
 
 			ins_query = ("INSERT INTO addresses VALUES(%s, %s)")
 			cursor.execute(ins_query, (self.email_id, self.location))

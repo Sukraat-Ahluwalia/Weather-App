@@ -1,0 +1,385 @@
+
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:43:42] "POST /insert_db HTTP/1.1" 200 -
+WARNING:root:Error Occured for Secrets Manager 
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:44:45] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:45:45] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:47:54] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:48:56] "POST /insert_db HTTP/1.1" 200 -
+WARNING:root:Error Occured for Secrets Manager 
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:52:55] "POST /insert_db HTTP/1.1" 200 -
+WARNING:root:Error Occured for Secrets Manager 
+INFO:werkzeug:127.0.0.1 - - [18/Jan/2019 02:55:04] "POST /insert_db HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 84, in check_insert
+    sm_string_vals = json.load(sm_string)
+  File "/usr/lib/python2.7/json/__init__.py", line 287, in load
+    return loads(fp.read(),
+AttributeError: 'unicode' object has no attribute 'read'
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 12:40:32] "POST /insert_db HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 12:40:32] "GET /favicon.ico HTTP/1.1" 404 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 83, in check_insert
+    sm_string_vals = json.load(sm_string)
+  File "/usr/lib/python2.7/json/__init__.py", line 287, in load
+    return loads(fp.read(),
+AttributeError: 'unicode' object has no attribute 'read'
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 12:49:55] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 83, in check_insert
+    sm_string_vals = json.load(sm_string)
+  File "/usr/lib/python2.7/json/__init__.py", line 287, in load
+    return loads(fp.read(),
+AttributeError: 'unicode' object has no attribute 'read'
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:00:40] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 82, in check_insert
+    sm_str_json = json.dump(sm_string)
+TypeError: dump() takes at least 2 arguments (1 given)
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:04:12] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 83, in check_insert
+    sm_string_vals = json.load(sm_str_json)
+  File "/usr/lib/python2.7/json/__init__.py", line 287, in load
+    return loads(fp.read(),
+AttributeError: 'str' object has no attribute 'read'
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:05:10] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 86, in check_insert
+    'host' : sm_string["host"],
+TypeError: string indices must be integers
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:06:34] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 87, in check_insert
+    'host' : sm_string["host"],
+TypeError: string indices must be integers
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:12:48] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 88, in check_insert
+    'user' : sm_string["user"],
+KeyError: 'user'
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:14:15] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 115, in check_insert
+    if len(cursor) > 0:
+TypeError: object of type 'MySQLCursor' has no len()
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:15:08] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 120, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:16:44] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 120, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 13:18:12] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 14:31:23] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:09:14] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:09:50] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:10:30] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:11:27] "POST /insert_db HTTP/1.1" 500 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 529, in execute
+    self._connection.handle_unread_result()
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 1063, in handle_unread_result
+    raise errors.InternalError("Unread result found")
+InternalError: Unread result found
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:11:49] "POST /insert_db HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:13:38] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:14:45] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:15:08] "POST /insert_db HTTP/1.1" 200 -
+ERROR:flask.app:Exception on /insert_db [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mikhail/code/Weather-App/frontend/front_src/insert_email.py", line 19, in insert_db
+    if conn_obj.check_insert():
+  File "/home/mikhail/code/Weather-App/frontend/front_src/db_conn.py", line 117, in check_insert
+    cursor.execute(ins_query, (self.email_id, self.location))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/cursor.py", line 559, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 494, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python2.7/dist-packages/mysql/connector/connection.py", line 396, in _handle_result
+    raise errors.get_exception(packet)
+IntegrityError: 1062 (23000): Duplicate entry 'sod@sod.com' for key 'PRIMARY'
+INFO:werkzeug:127.0.0.1 - - [19/Jan/2019 17:15:23] "POST /insert_db HTTP/1.1" 500 -
