@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Weather Powered Email</title>
+    <!--Directly passed Google Maps API key below, this is the only key passed in like this
+    All other keys, maps are stored in AWS Secrets Manager or as OS environment variables.
+    JS doesn't seem to have access to the local system hence it seems vanilla JS can't
+    fetch environment variables-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc4nU55uRNOcfgZTwK6iHv3IltpLsA3oA&libraries=places&language=en"></script>
 </head>
+
 <body>
 <div align="center">
     <table border="border">
@@ -13,7 +20,15 @@
         <td>Email Address: <input type="text" name="email_address" required="required" pattern="^.+@.+$"></td>
         </tr>
         <tr>
-            <td>Location: <input type="text" name="location" autocomplete="on" required="required"></td>
+            <td>Location: <input type="text" name="location" id="location" autocomplete="on" required="required"></td>
+
+            <script>
+                let input = document.getElementById('location');
+                let autocomplete = new google.maps.places.Autocomplete(input,{types: ['(cities)']});
+      google.maps.event.addListener(autocomplete, 'place_changed', function(){
+         var place = autocomplete.getPlace();
+      })
+            </script>
         </tr>
         <tr>
             <td><input type="submit" value="Subscribe"></td>

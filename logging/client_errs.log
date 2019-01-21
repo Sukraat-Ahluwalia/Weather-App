@@ -5,3 +5,5 @@ INFO:werkzeug:127.0.0.1 - - [21/Jan/2019 02:40:38] "POST /insert_db HTTP/1.1" 20
 INFO:werkzeug:127.0.0.1 - - [21/Jan/2019 02:47:12] "POST /insert_db HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [21/Jan/2019 02:48:38] "POST /insert_db HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [21/Jan/2019 02:50:12] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Jan/2019 03:11:56] "POST /insert_db HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [21/Jan/2019 03:14:07] "POST /insert_db HTTP/1.1" 200 -

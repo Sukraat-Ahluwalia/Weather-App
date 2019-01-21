@@ -15,7 +15,15 @@ from utilities.logutils import logutils
 from utilities.secrets_manager import secrets_manager
 
 class db_conn:
-	#constructor
+	'''
+	Constructor
+
+	Variables -
+
+	__email_id		The Email ID to insert in the DB
+	__location		Location associated with this email ID
+	__client_log	The logging object for this class.
+	'''
 	def __init__(self, email_id, location):
 		self.__email_id = email_id
 		self.__location = location
@@ -27,6 +35,13 @@ class db_conn:
 	success
 	'''
 	def check_insert(self):
+		'''
+		Open the config_prod.json file that contains the secret name
+		and region for the DB credentials stored in secrets manager
+
+		Then call secrets manager using the AWS SDK to fetch the
+		credentials.
+		'''
 		with open('../config/config_prod.json') as json_file:
 			secret_creds = json.load(json_file)
 
@@ -36,12 +51,14 @@ class db_conn:
 		awssm_obj = secrets_manager(secret_name, region)
 		sm_string = awssm_obj.fetch_secrets()
 
+		# If the call fails exit and return false
 		if len(sm_string) == 0:
 			self.__client_log.set_message("Call to Secrets Manager failed on client side")
 			return False
 
 		sm_string = json.loads(sm_string)
 
+		# db credentials object to connect to MySQL
 		db_config = {
 			'host' : sm_string["host"],
 			'user' : sm_string["username"],

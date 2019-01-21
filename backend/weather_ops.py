@@ -23,7 +23,8 @@ class weather_ops:
     Constructor
 
     Class Variables
-    __weather_req_str       Request string to be passed to the weather API
+    __hist_weather_req      Request string to be passed to the historical weather API
+    __curr_weather_req      Request string passed to the current weather API
     __start_date            Start date parameter for the weather request
     __end_date              End date parameter for the weather request
     __start_date_str        String representation of the start date
@@ -56,6 +57,8 @@ class weather_ops:
 
         if hist_res.status_code == 200:
             h_weather_json = json.loads(hist_res.text)
+            # The temperature is stored in the data part of the JSON
+            # as a list hence the [0] key to access it
             avg_temp = h_weather_json["data"][0]["temp"]
             json_str = json.dumps({"avg_temp":avg_temp})
 
@@ -82,6 +85,9 @@ class weather_ops:
 
         if curr_res.status_code == 200:
             c_weather_json = json.loads(curr_res.text)
+            # In this response as well the data part of the JSON
+            # response is stored as a list, hence the use of [0]
+            # to access it.
             curr_temp = c_weather_json["data"][0]["temp"]
             curr_feels_like = c_weather_json["data"][0]["app_temp"]
             curr_condition = c_weather_json["data"][0]["weather"]["description"]

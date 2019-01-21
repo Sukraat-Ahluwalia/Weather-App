@@ -2,7 +2,8 @@
 @file - email_sender.py
 @author - Sukraat Ahluwalia
 
-Class to send an email to a recipient using SMTP ()
+Class to send an email to a recipient using the SMTP
+protocol over SSL.
 '''
 
 import sys
@@ -17,18 +18,35 @@ from utilities.logutils import logutils
 from utilities.secrets_manager import secrets_manager
 
 class email_sender:
+    '''
+    Constructor
+
+    Variables -
+
+    port                The port no used by SMTP over SSL
+    smtp_server         The SMTP server to use
+    smtp_server_obj     An object representing the SMTP server
+    email_logger        Logging object for this class
+    __sender_email      Sender Email ID
+    __passwd            Sender's email password
+    '''
     def __init__(self):
         self.port = 465
-        #self.context = ssl.create_default_context()
         self.smtp_server = "smtp.gmail.com"
         self.smtp_serv_obj = smtplib.SMTP_SSL(self.smtp_server, self.port)
-        #self.smtp_serv_obj.ehlo()
-        #self.smtp_serv_obj.starttls()
-        #self.smtp_serv_obj.ehlo()
         self.email_logger = logutils("../logging/server_errs.log", 40)
         self.__sender_email = str()
         self.__passwd = str()
 
+    '''
+    Method that logs in to the senders email. 
+    
+    The username and password are stored in AWS Secrets Manager.
+    A call is made to the secrets manager utility class to fetch
+    them based on the secret name stored in config_email.json.
+    
+    Once fetched it uses the credentials to log into the email.
+    '''
     def login_sender(self):
         with open('../config/config_email.json') as json_file:
             secret_creds = json.load(json_file)
@@ -45,7 +63,18 @@ class email_sender:
 
         self.smtp_serv_obj.login(self.__sender_email, self.__passwd)
 
+    '''
+    Method to send the email.
+    
+    @:param message     The message to be sent represented as a list
+                        [subject. message body]
+    @:param recv_addr   The recipients email address
+    '''
     def send_mail(self, message, recv_addr):
+        '''
+        Construct a MIME message assigning the sender, subject
+        and message body fields to send the email
+        '''
         msg = MIMEMultipart()
         msg['From'] = self.__sender_email + "@gmail.com"
         msg['To'] = recv_addr
@@ -54,5 +83,8 @@ class email_sender:
 
         self.smtp_serv_obj.sendmail(self.__sender_email, recv_addr, msg.as_string())
 
+    '''
+    Method to quit the connection to the SMTP server
+    '''
     def quit_server(self):
         self.smtp_serv_obj.quit()

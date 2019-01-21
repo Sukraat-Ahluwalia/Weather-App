@@ -16,7 +16,8 @@ class logutils:
     Constructor
 
     @:param     filename    File name to log messages to
-    @:param     level       The logging level
+    @:param     level       The logging level represented as an
+                            integer value
     '''
     def __init__(self, filename, level):
         self.__level = level

@@ -2,7 +2,8 @@
 @file: weather_app.py
 @author: Sukraat Ahluwalia
 
-Main weather app class
+The main weather app class. Fetches the recipients from the database
+Uses associated utility files to send emails.
 '''
 
 import sys
@@ -20,11 +21,35 @@ import mysql.connector as mysql_conn
 
 class weather_app:
     def __init__(self):
+        '''
+        Constructor
+
+        Variables -
+
+        __app_logger    The logging object for this class
+        __recipients    A dictionary for email ids associated with their
+                        location
+        __city_weather  A dictionary that stores the city name and a message
+                        containing the weather information to be sent to all
+                        recipients that live in this city
+
+        __cities        A set of city names in the DB, used when fetching weather
+                        data to avoid making repeated calls for each city to the
+                        weather API
+        '''
         self.__app_logger = logutils("../logging/server_errs.log", 40)
         self.__recipients = defaultdict()
         self.__city_weather = defaultdict()
         self.__cities = set()
 
+    '''
+    Connects to the MySQL database to fetch the email addresses
+    for recipients and their city name.
+    
+    The results are populated in the __recipients class variable
+    
+    :@return a boolean value indicating success or failure
+    '''
     def fetch_recipients(self):
     	with open("../config/config_prod.json") as json_file:
             secret_creds = json.load(json_file)
@@ -74,6 +99,14 @@ class weather_app:
 
         return True
 
+    '''
+    Sends a GET request to the Weather API using the weather_ops class
+    only once for each city in the __cities set
+    
+    populates the __city_weather class variable. Once a new city's weather data
+    has been obtained it calls the message builder class to check for the weather
+    conditions to build a suitable email to be sent for the city. 
+    '''
     def fetch_weather(self):
         weather_ops_obj = weather_ops()
         msg_build = message_builder()
@@ -90,6 +123,11 @@ class weather_app:
                 c_message = msg_build.construct(city, res_json)
                 self.__city_weather[city] = c_message
 
+    '''
+    Iterates over recipients to fetch the messages stored in __city_weather
+    keyed by the city names, uses the email_sender class to establish an SMTP server
+    to send the emails. Calls quit_server() to log off from the SMTP server
+    '''
     def dispatch_emails(self):
         sender = email_sender()
         sender.login_sender()
@@ -101,11 +139,19 @@ class weather_app:
 
         sender.quit_server()
 
-
+'''
+Main method for this file. 
+'''
 def main():
     app_main = weather_app()
+    #log with logging level INFO
     main_logger = logutils("../logging/WeatherApp.log", 20)
 
+    '''
+    Send emails only if the connection to the DB is successful. In case of failure
+    there is no recipient list to use to send emails to, in that cases exit logging
+    a failure message in the WeatherApp.log file
+    '''
     if app_main.fetch_recipients():
         app_main.fetch_weather()
         app_main.dispatch_emails()
