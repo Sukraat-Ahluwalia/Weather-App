@@ -11,4 +11,4 @@ The app is operated using a webpage in /frontend with a simple form consisting o
 web page uses Google Maps API to enable autocomplete for locations. When entering the form looks like this - 
 
 ![Web Page Image]
-(https://imgur.com/a/AD5L8LH)
+(https://i.imgur.com/ATrR4wy.png)
