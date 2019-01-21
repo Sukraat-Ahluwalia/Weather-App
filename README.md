@@ -27,6 +27,7 @@ The App uses the Flask web framework to recieve data from the webpage which it t
 The Schema of the database is very simple - 
 
 `email_addr->varchar(255) PRIMARY KEY`
+
 `location->varchar(255)`
 
 The app has the following dependencies - 
