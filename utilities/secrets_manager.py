@@ -11,13 +11,13 @@ sys.path.append("../")
 import boto3
 
 from botocore.exceptions import ClientError
-from utilities import logutils
+from utilities.logutils import logutils
 
 class secrets_manager:
     def __init__(self, secret_name, region):
         self.__aws_region = region
         self.__secret_name = secret_name
-        self.__sm_logger = logutils("../logging/utilities_errs.log", "warn")
+        self.__sm_logger = logutils("../logging/utilities_errs.log", 40)
 
 
     def fetch_secrets(self):

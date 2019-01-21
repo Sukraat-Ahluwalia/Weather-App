@@ -11,15 +11,15 @@ sys.path.append("../")
 import json
 import mysql.connector as mysql_conn
 
-from utilities import logutils
-from utilities import secrets_manager
+from utilities.logutils import logutils
+from utilities.secrets_manager import secrets_manager
 
 class db_conn:
 	#constructor
 	def __init__(self, email_id, location):
 		self.__email_id = email_id
 		self.__location = location
-		self.__client_log = logutils('../logging/client_errs.log', 'warn')
+		self.__client_log = logutils('../logging/client_errs.log', 40)
 
 	'''
 	Checks whether the email address exists in the database. If it does
@@ -62,10 +62,11 @@ class db_conn:
 		except mysql_conn.Error as mysql_err:
 			db_err_str = ""
 			if mysql_err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-				db_err_str = " Access Denied while connecting to DB at "
+				db_err_str = " Access Denied while connecting to DB while inserting records"
 			else:
-				db_err_str = " Error occurred while connecting to DB at "
+				db_err_str = " Error occurred while connecting to DB while inserting records"
 			self.__client_log.set_message(db_err_str)
+			return False
 		else:
 			cursor = conn.cursor(buffered=True)
 			query = ("SELECT COUNT(%s) from addresses where email_addr=%s")

@@ -19,6 +19,7 @@ class logutils:
     @:param     level       The logging level
     '''
     def __init__(self, filename, level):
+        self.__level = level
         logging.basicConfig(level=level,filename=filename)
 
     '''
@@ -29,5 +30,5 @@ class logutils:
     The message is logged as date-time followed by the message passed
     '''
     def set_message(self, message):
-        message = dt.now().strftime() + " " + message
-        logging.log(message)
+        message = dt.now().strftime("%m-%d-%Y") + " " + message
+        logging.log(self.__level, message)

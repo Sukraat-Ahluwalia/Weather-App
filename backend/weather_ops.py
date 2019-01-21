@@ -13,7 +13,7 @@ import os
 import requests as req
 from datetime import datetime as dt
 from datetime import timedelta as tdelta
-from utilities import logutils
+from utilities.logutils import logutils
 
 '''
 Class for weather data based operations.
@@ -40,7 +40,7 @@ class weather_ops:
         self.__start_date_str = "&start_date=" + self.__start_date.strftime("%Y-%m-%d")
         self.__end_date_str = "&end_date="+self.__end_date.strftime("%Y-%m-%d")
         self.__api_key = "&key=" + os.environ['WEATHER_API_KEY']
-        self.__w_log_obj = logutils("../logging/server_errs.log", "warn")
+        self.__w_log_obj = logutils("../logging/server_errs.log", 40)
 
     '''        
     Method to send a request to the Weather API for a particular city. Fetches historical average 
@@ -56,14 +56,14 @@ class weather_ops:
 
         if hist_res.status_code == 200:
             h_weather_json = json.loads(hist_res.text)
-            avg_temp = h_weather_json["data"]["temp"]
+            avg_temp = h_weather_json["data"][0]["temp"]
             json_str = json.dumps({"avg_temp":avg_temp})
 
         else:
             status_code = str(hist_res.status_code)
             message = "Call to Weather API for historical weather failed with status code HTTP " + status_code
             self.__w_log_obj.set_message(message)
-            json_str = json.dumps({"avg_temp":"Failed"})
+            json_str = json.dumps({"avg_temp":"failed"})
 
         return json_str
 
@@ -82,15 +82,15 @@ class weather_ops:
 
         if curr_res.status_code == 200:
             c_weather_json = json.loads(curr_res.text)
-            curr_temp = c_weather_json["data"]["temp"]
-            curr_feels_like = c_weather_json["data"]["app_temp"]
-            curr_condition = c_weather_json["data"]["weather"]["description"]
+            curr_temp = c_weather_json["data"][0]["temp"]
+            curr_feels_like = c_weather_json["data"][0]["app_temp"]
+            curr_condition = c_weather_json["data"][0]["weather"]["description"]
 
             curr_json_str = json.dumps({"temp":curr_temp, "app_temp": curr_feels_like, "weather":curr_condition})
         else:
             status_code = str(curr_res.status_code)
             message = "Call to Weather API for current weather failed with status code HTTP " + status_code
             self.__w_log_obj.set_message(message)
-            curr_json_str = json.dumps({"temp":"Failed"})
+            curr_json_str = json.dumps({"temp":"failed", "app_temp":"failed", "weather":"failed"})
 
         return curr_json_str

@@ -10,19 +10,22 @@ sys.path.append("../")
 
 import json
 import smtplib
-import ssl
 
-from utilities import logutils
-from utilities import secrets_manager
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+from utilities.logutils import logutils
+from utilities.secrets_manager import secrets_manager
 
 class email_sender:
     def __init__(self):
-        self.port = 587
-        self.context = ssl.create_default_context()
+        self.port = 465
+        #self.context = ssl.create_default_context()
         self.smtp_server = "smtp.gmail.com"
-        self.smtp_serv_obj = smtplib.SMTP(self.smtp_server, self.port)
-        self.smtp_serv_obj.starttls(self.context)
-        self.email_logger = logutils("../logging/server_errs.log", "warn")
+        self.smtp_serv_obj = smtplib.SMTP_SSL(self.smtp_server, self.port)
+        #self.smtp_serv_obj.ehlo()
+        #self.smtp_serv_obj.starttls()
+        #self.smtp_serv_obj.ehlo()
+        self.email_logger = logutils("../logging/server_errs.log", 40)
         self.__sender_email = str()
         self.__passwd = str()
 
@@ -43,7 +46,13 @@ class email_sender:
         self.smtp_serv_obj.login(self.__sender_email, self.__passwd)
 
     def send_mail(self, message, recv_addr):
-        self.smtp_serv_obj.sendmail(self.__sender_email, recv_addr, message)
+        msg = MIMEMultipart()
+        msg['From'] = self.__sender_email + "@gmail.com"
+        msg['To'] = recv_addr
+        msg['Subject'] = message[0]
+        msg.attach(MIMEText(message[1], 'plain'))
+
+        self.smtp_serv_obj.sendmail(self.__sender_email, recv_addr, msg.as_string())
 
     def quit_server(self):
         self.smtp_serv_obj.quit()
