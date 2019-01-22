@@ -18,6 +18,8 @@ The directory structure for the app ->
 The app is operated using a webpage in /frontend with a simple form consisting of two fields -> An email and location. The 
 web page uses Google Maps API to enable autocomplete for locations. When entering the form looks like this - 
 
+<b>NOTE:</b> - The "mikhail" in the local system link in the webpage below is the name of my Ubuntu PC on which this was coded, I give Russian names to my systems(My Arch system is named boris, my FreeBSD VM is named Oleg, and so on...). My git cli is configured with the username on my system i.e mikhail hence you'll see some commits with that name over here since git's initial configuration uses the mail setup on the local system. 
+
 ![Web Page Image](https://i.imgur.com/ATrR4wy.png)
 
 To avoid malicious attacks like SQL injections the form in the webpage uses HTML's `pattern` attribute using a regex 
