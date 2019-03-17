@@ -43,6 +43,7 @@ To send emails the app is called using `python weather_app.py` from the `/backen
 
 To-Do's - 
 
-1) Add unit tests for all Python files.
-2) Deploy on AWS LightSail on an NGINX instance, so that the app can be accessed and used by anybody. (Should be done soon)
-3) Add CI/CD functionalities (Hopefully)
+1) Integrate AWS SQS/SNS here.
+2) Move from MySQL to DynamoDB.
+3) Deploy on AWS LightSail on an NGINX instance, so that the app can be accessed and used by anybody. (Should be done soon)
+4) Add CI/CD functionalities. (Hopefully)
